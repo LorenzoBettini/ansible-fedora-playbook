@@ -7,4 +7,5 @@
     - dconf-editor
     - python-psutil
     - gnome-extensions-app
+    - guake
 
