@@ -1,0 +1,57 @@
+- name: Install Java Packages
+  become: yes
+  pacman:
+    state: present
+    name:
+    - jdk8-openjdk
+    - openjdk8-src
+    - openjdk8-doc
+    - jdk11-openjdk
+    - openjdk11-src
+    - openjdk11-doc
+    - jdk-openjdk # JDK 17
+    - openjdk-src
+    - openjdk-doc
+  register: packageout
+
+- debug: msg="{{ packageout.msg }}"
+  when: packageout.msg is defined
+
+- name: Create Java links directory
+  file:
+    path: '~/.jdk'
+    state: directory
+
+- name: Create Java links
+  file:
+    src: '/usr/lib/jvm/java-{{ item }}-openjdk'
+    dest: '~/.jdk/jdk{{ item }}'
+    state: link
+  loop:
+    - 8
+    - 11
+    - 17
+
+- name: Remove old Java links
+  file:
+    path: '~/.jdk/jdk{{ item }}'
+    state: absent
+  loop:
+    - 16
+
+# This should not be required
+# - name: Install libwebkit2gtk (for Eclipse SWT Browser)
+#   become: yes
+#   pacman:
+#     state: present
+#     name: libwebkit2gtk-4.0-37
+#   register: packageout
+
+# - debug: msg="{{ packageout.msg }}"
+#   when: packageout.msg is defined
+
+- name: Install Maven
+  include_role:
+    name: gantsign.maven
+  vars:
+    maven_version: '3.8.3'

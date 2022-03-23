@@ -1,0 +1,12 @@
+- name: Install LibreOffice Packages
+  become: yes
+  pacman:
+    state: present
+    name:
+    - libreoffice-fresh
+    - hunspell-en_US
+    - hunspell-it
+  register: packageout
+
+- debug: msg="{{ packageout.msg }}"
+  when: packageout.msg is defined

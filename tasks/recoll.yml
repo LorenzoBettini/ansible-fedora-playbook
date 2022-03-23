@@ -1,0 +1,23 @@
+- name: Install Recoll
+  become: yes
+  pacman:
+    state: present
+    name:
+    - recoll
+    - antiword
+    - unrtf
+    - python-lxml
+  register: packageout
+
+- debug: msg="{{ packageout.msg }}"
+  when: packageout.msg is defined
+
+- name: Create Recoll configuration directory
+  file:
+    path: '~/.recoll'
+    state: directory
+
+- name: Set Recoll configuration
+  copy:
+    src: "{{ playbook_dir }}/tasks/files/recoll/"
+    dest: "~/.recoll/"

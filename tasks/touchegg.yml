@@ -1,0 +1,27 @@
+- name: Install Touchegg
+  become: yes
+  pacman:
+    state: present
+    name:
+    - touchegg
+  when: ansible_distribution_release != "rolling" # Manjaro
+  register: packageout
+
+- name: Install Touchegg from AUR
+  become: yes
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    state: present
+    name:
+    - touchegg
+  when: ansible_distribution_release == "rolling" # Endeavour OS
+  register: packageout
+
+- debug: msg="{{ packageout.msg }}"
+  when: packageout.msg is defined
+
+- name: Enable Touchegg on boot
+  become: yes
+  ansible.builtin.service:
+    name: touchegg
+    enabled: yes

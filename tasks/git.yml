@@ -1,0 +1,11 @@
+- name: Install Git Packages
+  become: yes
+  pacman:
+    state: present
+    name:
+    - git
+    - tk # required by git gui and gitk
+  register: packageout
+
+- debug: msg="{{ packageout.msg }}"
+  when: packageout.msg is defined

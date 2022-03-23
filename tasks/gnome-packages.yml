@@ -1,0 +1,27 @@
+- name: Install Gnome Packages
+  become: yes
+  pacman:
+    state: present
+    name:
+    - gnome-tweaks
+    - dconf-editor
+    - python-psutil
+  register: packageout
+
+- debug: msg="{{ packageout }}"
+  when: packageout.msg is defined
+
+- name: Uninstall Gnome terminal...
+  become: yes
+  pacman:
+    state: absent
+    name:
+    - gnome-terminal
+
+- name: .. and install Gnome terminal with transparency
+  become: yes
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    state: present
+    name:
+    - gnome-terminal-transparency

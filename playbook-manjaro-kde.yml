@@ -1,0 +1,61 @@
+---
+- hosts: all
+  pre_tasks:
+    - name: System details
+      debug: msg="{{ item }}"
+      with_items: 
+      - "{{ ansible_distribution }}"
+      - "{{ ansible_distribution_release }}"
+      - "{{ ansible_distribution_version }}"
+      - "{{ ansible_distribution_major_version }}"
+    - name: update repositories
+      become: yes
+      pacman: update_cache=yes
+      changed_when: False
+  tasks:
+    - include: tasks/aur-user.yml
+    - include: tasks/git.yml
+    - include: tasks/main-packages.yml
+    - include: tasks/kde-packages.yml
+    - include: tasks/kde-configurations.yml
+    - include: tasks/zsh.yml
+    - include: tasks/zsh-antigen.yml
+    - include: tasks/java-packages.yml
+    - include: tasks/google-chrome.yml
+    - include: tasks/dropbox.yml
+    - include: tasks/docker.yml
+    # - include: tasks/albert.yml
+    - include: tasks/recoll.yml
+    - include: tasks/vscode.yml
+    - include: tasks/libreoffice.yml
+    - include: tasks/other-packages.yml
+    - include: tasks/touchegg.yml
+    - include: tasks/touchegg-kde-conf.yml
+    - include: tasks/skype.yml
+    # - include: tasks/amarok.yml
+    - block:
+      - include: tasks/latex.yml
+      tags: latex
+  # post_tasks:
+  #   - name: Dist-upgrade
+  #     become: yes
+  #     apt:
+  #       upgrade: dist
+  #     register: aptout
+
+  #   - debug: msg="{{ aptout.stdout_lines }}"
+  #     when: aptout.stdout_lines is defined
+
+  #   - name: Remove useless packages from the cache
+  #     become: yes
+  #     apt:
+  #       autoclean: yes
+
+  #   - name: Remove dependencies that are no longer required
+  #     become: yes
+  #     apt:
+  #       autoremove: yes
+  #     register: aptout
+
+  #   - debug: msg="{{ aptout.stdout_lines }}"
+  #     when: aptout.stdout_lines is defined

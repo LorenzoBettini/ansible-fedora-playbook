@@ -1,0 +1,56 @@
+- name: terminal transparency
+  dconf:
+    key: "/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/use-transparent-background"
+    value: "true"
+
+- name: terminal transparency percentage
+  dconf:
+    key: "/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/background-transparency-percent"
+    value: "5"
+
+- name: Ctrl+Alt+Up reserved for Eclipse
+  dconf:
+    key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-up"
+    value: "['<Super>Page_Up']"
+
+- name: Ctrl+Alt+Down reserved for Eclipse
+  dconf:
+    key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-down"
+    value: "['<Super>Page_Down']"
+
+# Custom shortcuts:
+#   For each shortcut, define a name, a command, and a binding.
+
+- name: Maximized terminal shortcut <Super>t"
+  dconf:
+    key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/name"
+    value: "'terminal'"
+- name: terminal shortcut command
+  dconf:
+    key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command"
+    value: "'gnome-terminal --maximize'"
+- name: terminal shortcut binding
+  dconf:
+    key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/binding"
+    value: "'<Super>t'"
+
+- name: Terminal shortcut Ctrl+Alt+t"
+  dconf:
+    key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/name"
+    value: "'terminal'"
+- name: terminal shortcut command
+  dconf:
+    key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/command"
+    value: "'gnome-terminal'"
+- name: terminal shortcut binding
+  dconf:
+    key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/binding"
+    value: "'<Primary><Alt>t'"
+
+# All custom shortcuts must also be added to an array.
+
+- name: enable custom keybindings
+  dconf:
+    key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings"
+    value: "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']"
+

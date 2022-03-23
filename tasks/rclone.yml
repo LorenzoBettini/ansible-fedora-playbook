@@ -1,0 +1,11 @@
+- name: Install Rclone browser
+  become: yes
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    state: present
+    name:
+    - rclone-browser
+  register: packageout
+
+- debug: msg="{{ packageout }}"
+  when: packageout is defined

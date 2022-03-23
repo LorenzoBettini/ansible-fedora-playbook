@@ -1,0 +1,14 @@
+- name: Install ZSH
+  become: yes
+  pacman:
+    name: zsh
+    state: present
+  register: packageout
+
+- debug: msg="{{ packageout.msg }}"
+  when: packageout.msg is defined
+
+# Better to do that manually, when needed and wanted
+#- name: Change shell to zsh
+#  become: yes
+#  shell: "chsh -s $(which zsh) {{ lookup('env', 'USER') }}"

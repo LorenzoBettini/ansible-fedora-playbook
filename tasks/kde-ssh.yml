@@ -1,0 +1,47 @@
+- name: Install kwalletmanager and ksshaskpass
+  become: yes
+  pacman:
+    state: present
+    name:
+    - kwalletmanager
+    - ksshaskpass
+  register: packageout
+
+- debug: msg="{{ packageout.msg }}"
+  when: packageout.msg is defined
+
+- name: Install plasma-workspace-agent-ssh
+  become: yes
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    state: present
+    name:
+    - plasma-workspace-agent-ssh
+  register: packageout
+
+- debug: msg="{{ packageout.msg }}"
+  when: packageout.msg is defined
+
+- name: Create autostart directory
+  file:
+    path: '~/.config/autostart'
+    mode: 0755
+    state: directory
+
+- name: Copy ssh-add.desktop
+  copy:
+    src: "{{ playbook_dir }}/tasks/files/kde-ssh/ssh-add.desktop"
+    dest: "~/.config/autostart/"
+    mode: 0644
+
+- name: Create plasma-workspace/env directory
+  file:
+    path: '~/.config/plasma-workspace/env'
+    mode: 0755
+    state: directory
+
+- name: Copy askpass.sh
+  copy:
+    src: "{{ playbook_dir }}/tasks/files/kde-ssh/askpass.sh"
+    dest: "~/.config/plasma-workspace/env/"
+    mode: 0755

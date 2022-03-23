@@ -1,0 +1,10 @@
+- name: Install VS Code
+  become: yes
+  pacman:
+    state: present
+    name:
+    - code
+  register: packageout
+
+- debug: msg="{{ packageout.msg }}"
+  when: packageout.msg is defined

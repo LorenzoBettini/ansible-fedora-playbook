@@ -1,0 +1,22 @@
+- name: Install Antigen requirements
+  become: yes
+  pacman:
+    state: present
+    pkg:
+    - powerline-fonts
+    - curl
+    - git
+  register: packageout
+
+- debug: msg="{{ packageout.msg }}"
+  when: packageout.msg is defined
+
+- name: Download Antigen
+  get_url:
+    url: "https://git.io/antigen"
+    dest: "~/antigen.zsh"
+
+- name: Set Antigen configuration
+  copy:
+    src: "{{ playbook_dir }}/tasks/files/antigen/"
+    dest: "~/"

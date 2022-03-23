@@ -1,0 +1,26 @@
+- name: Install Docker Packages
+  become: yes
+  pacman:
+    state: present
+    name:
+    - docker
+    - docker-compose
+  register: packageout
+
+- debug: msg="{{ packageout.msg }}"
+  when: packageout.msg is defined
+
+- name: Allow running Docker without sudo
+  become: yes
+  user:
+    name: "{{ ansible_user_id }}"
+    groups: docker
+    append: yes
+
+# Then, you have to explicitly start docker.service
+# systemctl start docker.service
+- name: Do NOT enable service docker on boot
+  become: yes
+  ansible.builtin.service:
+    name: docker
+    enabled: no
