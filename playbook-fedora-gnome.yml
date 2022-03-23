@@ -17,6 +17,7 @@
     - include: tasks/main-packages.yml
     - include: tasks/gnome-packages.yml
     - include: tasks/gnome-extensions.yml
+    - include: tasks/gnome-configurations.yml
 
   # post_tasks:
   #   - name: Dist-upgrade
