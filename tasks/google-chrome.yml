@@ -1,11 +1,22 @@
-- name: Install Chrome
+- name: Add Google Yum signing key
   become: yes
-  become_user: aur_builder
-  kewlfft.aur.aur:
+  rpm_key:
+    key: https://dl.google.com/linux/linux_signing_key.pub
     state: present
-    name:
-    - google-chrome
-  register: packageout
 
-- debug: msg="{{ packageout }}"
-  when: packageout is defined
+- name: Add Google repository into repo.d list
+  become: yes
+  yum_repository:
+    name: google-chrome
+    description: google-chrome repository
+    baseurl: http://dl.google.com/linux/chrome/rpm/stable/x86_64
+    enabled: true
+    gpgcheck: true
+    gpgkey: https://dl.google.com/linux/linux_signing_key.pub
+
+- name: Install google-chrome-stable
+  become: yes
+  yum:
+    name: "google-chrome-stable"
+    state: present
+    update_cache: true

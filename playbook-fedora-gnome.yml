@@ -22,6 +22,7 @@
     - include: tasks/zsh-antigen.yml
     - include: tasks/kde-gnome-packages.yml
     - include: tasks/java-packages.yml
+    - include: tasks/google-chrome.yml
 
   # post_tasks:
   #   - name: Dist-upgrade
