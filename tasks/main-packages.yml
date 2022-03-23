@@ -1,18 +1,15 @@
 - name: Install Main Packages
   become: yes
-  pacman:
+  package:
     state: present
     name:
-    - base-devel
     - vim
     - curl
     - wget
     - curl
     - gkrellm
     - net-tools
-    - unison
     - thunderbird
-  register: packageout
 
-- debug: msg="{{ packageout }}"
-  when: packageout.msg is defined
+# base-devel does not exist
+# unison must be taken from COPR
