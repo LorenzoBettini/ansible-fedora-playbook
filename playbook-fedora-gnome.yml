@@ -13,7 +13,7 @@
       dnf: update_cache=yes
       changed_when: False
   tasks:
-#    - include: tasks/git.yml
+    - include: tasks/git.yml
 
   # post_tasks:
   #   - name: Dist-upgrade
