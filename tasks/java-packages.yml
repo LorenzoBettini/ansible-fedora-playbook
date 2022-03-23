@@ -1,21 +1,14 @@
 - name: Install Java Packages
   become: yes
-  pacman:
+  dnf:
     state: present
     name:
-    - jdk8-openjdk
-    - openjdk8-src
-    - openjdk8-doc
-    - jdk11-openjdk
-    - openjdk11-src
-    - openjdk11-doc
-    - jdk-openjdk # JDK 17
-    - openjdk-src
-    - openjdk-doc
-  register: packageout
-
-- debug: msg="{{ packageout.msg }}"
-  when: packageout.msg is defined
+    - java-17-openjdk-devel
+    - java-17-openjdk-src
+    - java-11-openjdk-devel
+    - java-11-openjdk-src
+    - java-1.8.0-openjdk-devel
+    - java-1.8.0-openjdk-src
 
 - name: Create Java links directory
   file:
@@ -28,7 +21,7 @@
     dest: '~/.jdk/jdk{{ item }}'
     state: link
   loop:
-    - 8
+    - 1.8.0 # note this one is different!
     - 11
     - 17
 
