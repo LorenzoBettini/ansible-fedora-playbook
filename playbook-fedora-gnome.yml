@@ -20,6 +20,7 @@
     - include: tasks/gnome-configurations.yml
     - include: tasks/zsh.yml
     - include: tasks/zsh-antigen.yml
+    - include: tasks/kde-gnome-packages.yml
 
   # post_tasks:
   #   - name: Dist-upgrade

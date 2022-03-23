@@ -1,14 +1,11 @@
 - name: Install KDE Packages in Gnome
   become: yes
-  pacman:
+  package:
     state: present
     name:
     - kate
     - spectacle
   register: packageout
-
-- debug: msg="{{ packageout.msg }}"
-  when: packageout.msg is defined
 
 - name: Ensure xdg mime default application is set
   command: "xdg-mime default {{ item[0].desktop_file }} {{ item[1] }}"
