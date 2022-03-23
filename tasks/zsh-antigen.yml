@@ -1,15 +1,11 @@
 - name: Install Antigen requirements
   become: yes
-  pacman:
+  package:
     state: present
     pkg:
     - powerline-fonts
     - curl
     - git
-  register: packageout
-
-- debug: msg="{{ packageout.msg }}"
-  when: packageout.msg is defined
 
 - name: Download Antigen
   get_url:
