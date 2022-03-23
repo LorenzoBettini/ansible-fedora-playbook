@@ -1,10 +1,26 @@
 - name: Install Guake Drop-down Terminal
   become: yes
-  pacman:
+  package:
     state: present
     name:
     - guake
-  register: packageout
 
-- debug: msg="{{ packageout.msg }}"
-  when: packageout.msg is defined
+- name: Guake shortcut F12 for Wayland"
+  dconf:
+    key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/guake/name"
+    value: "'guake'"
+- name: guake shortcut command
+  dconf:
+    key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/guake/command"
+    value: "'guake-toggle'"
+- name: guake shortcut binding
+  dconf:
+    key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/guake/binding"
+    value: "'F12'"
+
+# All custom shortcuts must also be added to an array.
+
+- name: enable custom keybindings
+  dconf:
+    key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings"
+    value: "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/guake/']"

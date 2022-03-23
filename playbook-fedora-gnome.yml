@@ -18,6 +18,7 @@
     - include: tasks/gnome-packages.yml
     - include: tasks/gnome-extensions.yml
     - include: tasks/gnome-configurations.yml
+    - include: tasks/guake.yml
 
   # post_tasks:
   #   - name: Dist-upgrade
