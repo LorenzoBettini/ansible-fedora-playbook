@@ -23,6 +23,7 @@
     - include: tasks/kde-gnome-packages.yml
     - include: tasks/java-packages.yml
     - include: tasks/google-chrome.yml
+    - include: tasks/dropbox.yml
 
   # post_tasks:
   #   - name: Dist-upgrade
