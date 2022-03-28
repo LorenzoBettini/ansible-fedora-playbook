@@ -1,14 +1,35 @@
+- name: Make sure dnf-plugins.core installed
+  become: yes
+  dnf:
+    name: dnf-plugins-core
+    state: present
+
+- name: Add Docker signing key
+  become: yes
+  ansible.builtin.rpm_key:
+    key: "https://download.docker.com/linux/fedora/gpg"
+    state: present
+
+- name: Add Docker repository into repo.d list
+  become: yes
+  ansible.builtin.yum_repository:
+    name: docker
+    description: docker repository
+    baseurl: "https://download.docker.com/linux/fedora/$releasever/$basearch/stable"
+    enabled: true
+    gpgcheck: true
+    gpgkey: "https://download.docker.com/linux/fedora/gpg"
+
 - name: Install Docker Packages
   become: yes
-  pacman:
+  dnf:
     state: present
     name:
-    - docker
-    - docker-compose
-  register: packageout
-
-- debug: msg="{{ packageout.msg }}"
-  when: packageout.msg is defined
+    - docker-ce
+    - docker-ce-cli
+    - containerd.io
+    - docker-compose # this is actually from the Fedora repositories
+    update_cache: true
 
 - name: Allow running Docker without sudo
   become: yes
