@@ -7,6 +7,7 @@
 - name: Add Dropbox repository into repo.d list
   become: yes
   yum_repository:
+    file: dropbox
     name: Dropbox
     description: Dropbox Repository
     baseurl: http://linux.dropbox.com/fedora/$releasever/
