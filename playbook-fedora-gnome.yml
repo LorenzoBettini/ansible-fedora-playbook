@@ -25,6 +25,9 @@
     - include: tasks/google-chrome.yml
     - include: tasks/dropbox.yml
     - include: tasks/docker.yml
+#    - include: tasks/albert.yml # let's try without
+#    - include: tasks/recoll.yml # TODO
+    - include: tasks/vscode.yml
 
   # post_tasks:
   #   - name: Dist-upgrade

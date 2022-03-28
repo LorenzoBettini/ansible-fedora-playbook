@@ -1,10 +1,15 @@
-- name: Install VS Code
+- name: install VS Code repo (yum)
   become: yes
-  pacman:
-    state: present
-    name:
-    - code
-  register: packageout
+  yum_repository:
+    name: code
+    description: Visual Studio Code repo
+    file: vscode
+    baseurl: 'https://packages.microsoft.com/yumrepos/vscode'
+    gpgkey: 'https://packages.microsoft.com/keys/microsoft.asc'
+    gpgcheck: yes
 
-- debug: msg="{{ packageout.msg }}"
-  when: packageout.msg is defined
+- name: install VS Code (yum)
+  become: yes
+  yum:
+    name: code
+    state: present
