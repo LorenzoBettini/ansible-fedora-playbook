@@ -1,16 +1,12 @@
 - name: Install Recoll
   become: yes
-  pacman:
+  package:
     state: present
     name:
     - recoll
     - antiword
     - unrtf
     - python-lxml
-  register: packageout
-
-- debug: msg="{{ packageout.msg }}"
-  when: packageout.msg is defined
 
 - name: Create Recoll configuration directory
   file:

@@ -26,7 +26,8 @@
     - include: tasks/dropbox.yml
     - include: tasks/docker.yml
 #    - include: tasks/albert.yml # let's try without
-#    - include: tasks/recoll.yml # TODO
+    - include: tasks/cronie.yml # required for cron scheduling
+    - include: tasks/recoll.yml
     - include: tasks/vscode.yml
     - include: tasks/libreoffice.yml
 
