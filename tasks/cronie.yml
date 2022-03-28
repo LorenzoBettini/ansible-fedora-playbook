@@ -5,8 +5,9 @@
     name:
     - cronie
 
-- name: Enable service cronie
-  become: yes
-  ansible.builtin.systemd:
-    name: cronie
-    enabled: yes
+# No such service in Fedora?
+#- name: Enable service cronie
+#  become: yes
+#  ansible.builtin.systemd:
+#    name: cronie
+#    enabled: yes
