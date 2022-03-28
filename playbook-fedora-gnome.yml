@@ -28,6 +28,7 @@
 #    - include: tasks/albert.yml # let's try without
 #    - include: tasks/recoll.yml # TODO
     - include: tasks/vscode.yml
+    - include: tasks/libreoffice.yml
 
   # post_tasks:
   #   - name: Dist-upgrade
