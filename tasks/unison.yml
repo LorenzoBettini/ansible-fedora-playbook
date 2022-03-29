@@ -1,0 +1,14 @@
+- name: Enable project Unison of the user croadfeldt
+  become: yes
+  community.general.copr:
+    host: copr.fedorainfracloud.org
+    state: enabled
+    name: croadfeldt/Unison
+
+- name: install Unison
+  become: yes
+  dnf:
+    state: present
+    name:
+    - unison251-gtk
+    - unison251-text
