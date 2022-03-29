@@ -4,3 +4,4 @@
     state: present
     name:
     - texlive-scheme-medium
+    - texlive-todonotes
