@@ -32,6 +32,9 @@
     - include: tasks/libreoffice.yml
     - include: tasks/other-packages.yml
     - include: tasks/skype.yml
+    - block:
+      - include: tasks/latex.yml
+      tags: latex
 
   # post_tasks:
   #   - name: Dist-upgrade

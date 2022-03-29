@@ -1,13 +1,6 @@
 - name: Install Latex Packages
   become: yes
-  pacman:
+  package:
     state: present
     name:
-    - texlive-core
-    - texlive-latexextra
-    - texlive-bibtexextra
-    - texlive-fontsextra
-  register: packageout
-
-- debug: msg="{{ packageout.msg }}"
-  when: packageout.msg is defined
+    - texlive-scheme-medium
