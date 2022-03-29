@@ -30,6 +30,7 @@
     - include: tasks/recoll.yml
     - include: tasks/vscode.yml
     - include: tasks/libreoffice.yml
+    - include: tasks/other-packages.yml
 
   # post_tasks:
   #   - name: Dist-upgrade

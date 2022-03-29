@@ -1,37 +1,21 @@
-- name: Uninstall mlocate and exfat-utils
-  become: yes
-  pacman:
-    state: absent
-    name:
-    - mlocate
-    - exfat-utils
-  register: packageout
-
-- debug: msg="{{ packageout.msg }}"
-  when: packageout.msg is defined
-
 - name: Install Other Packages
   become: yes
-  pacman:
+  package:
     state: present
     name:
     - emacs
     - homebank
     - vlc
-    - aribb24 # for MPEG
     - meld
     - iotop
     - nethogs
-    - unrar
+    - unrar # from rpmfusion-nonfree
     - hyphen-it
     - hunspell-it
     - exfatprogs
-    - ispell
+#    - ispell
+    - aspell
     - gimp
     - tree
-    - plocate
+#    - plocate # let's try to stick with mlocate
     - eog # Eyes of Gnome
-  register: packageout
-
-- debug: msg="{{ packageout.msg }}"
-  when: packageout.msg is defined
