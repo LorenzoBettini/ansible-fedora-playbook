@@ -1,11 +1,19 @@
+- name: Add Skype Yum signing key
+  become: yes
+  rpm_key:
+    key: https://repo.skype.com/data/SKYPE-GPG-KEY
+    state: present
+
+- name: Add Skype repository into repo.d list
+  become: yes
+  yum_repository:
+    name: skype-stable
+    description: Skypeforlinux - stable
+    baseurl: https://repo.skype.com/rpm/stable/
+    gpgkey: https://repo.skype.com/data/SKYPE-GPG-KEY
+
 - name: Install Skype
   become: yes
-  become_user: aur_builder
-  kewlfft.aur.aur:
+  dnf:
+    name: skypeforlinux
     state: present
-    name:
-    - skypeforlinux-stable-bin 
-  register: packageout
-
-- debug: msg="{{ packageout.msg }}"
-  when: packageout.msg is defined
