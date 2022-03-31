@@ -14,6 +14,7 @@
       changed_when: False
   tasks:
     - include: tasks/git.yml
+    - include: tasks/fedora-packages.yml
     - include: tasks/main-packages.yml
     - include: tasks/gnome-packages.yml
     - include: tasks/gnome-extensions.yml

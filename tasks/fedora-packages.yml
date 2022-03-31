@@ -1,0 +1,6 @@
+- name: Install Fedora Packages
+  become: yes
+  package:
+    state: present
+    name:
+    - redhat-lsb-core # for lsb_release
