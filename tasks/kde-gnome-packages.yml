@@ -5,6 +5,7 @@
     name:
     - kate
     - spectacle
+    - kvantum # to have Kate color schemes
   register: packageout
 
 - name: Ensure xdg mime default application is set
