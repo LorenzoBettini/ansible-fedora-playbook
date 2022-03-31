@@ -8,4 +8,4 @@
 - name: customize Tracker Ignored directories
   dconf:
     key: "/org/freedesktop/tracker/miner/files/ignored-directories"
-    value: "['po', 'CVS', 'core-dumps', 'lost+found', 'bin', 'test-bin', 'bin-test', 'target', 'xtend-gen', 'src-gen', 'cache', 'node_modules', 'node_packages']"
+    value: "['po', 'CVS', 'core-dumps', 'lost+found', 'bin', 'test-bin', 'bin-test', 'target', 'xtend-gen', 'src-gen', 'cache', 'node_modules', 'node_packages', 'thunderbird']"
