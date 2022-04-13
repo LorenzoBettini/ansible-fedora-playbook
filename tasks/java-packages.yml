@@ -21,15 +21,21 @@
     dest: '~/.jdk/jdk{{ item }}'
     state: link
   loop:
-    - 1.8.0 # note this one is different!
     - 11
     - 17
+
+- name: Create Java 8 link
+  file:
+    src: '/usr/lib/jvm/java-1.8.0-openjdk'
+    dest: '~/.jdk/jdk8'
+    state: link
 
 - name: Remove old Java links
   file:
     path: '~/.jdk/jdk{{ item }}'
     state: absent
   loop:
+    - 1.8.0
     - 16
 
 # This should not be required
