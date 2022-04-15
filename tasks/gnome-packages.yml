@@ -9,4 +9,5 @@
     - gnome-extensions-app
     - guake
     - deja-dup
+    - file-roller-nautilus # includes file-roller
 
