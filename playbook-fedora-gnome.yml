@@ -22,7 +22,9 @@
     - include: tasks/gnome-tracker.yml
     - include: tasks/zsh.yml
     - include: tasks/zsh-antigen.yml
+    # in Fedora 36 we have the new Gnome text editor that looks good!
     - include: tasks/kde-gnome-packages.yml
+      when: ansible_distribution_version is version('36', '<')
     - include: tasks/java-packages.yml
     - include: tasks/google-chrome.yml
     - include: tasks/dropbox.yml
