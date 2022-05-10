@@ -1,0 +1,15 @@
+- name: Configure DNF
+  become: yes
+  community.general.ini_file:
+    path: /etc/dnf/dnf.conf
+    mode: 0644
+    section: main
+    option: '{{ item.option }}'
+    value: '{{ item.value }}'
+    no_extra_spaces: yes
+  loop:
+  - option: fastestmirror
+    value: True
+  - option: max_parallel_downloads
+    value: 10
+
