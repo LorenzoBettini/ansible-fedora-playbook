@@ -11,3 +11,10 @@
     - deja-dup
     - file-roller-nautilus # includes file-roller
 
+- name: Install Gnome 42 Packages
+  become: yes
+  package:
+    state: present
+    name:
+    - gnome-text-editor
+  when: ansible_distribution_version is version('36', '>=')
