@@ -2,5 +2,5 @@
 - hosts: all
 
   tasks:
-    - include: tasks/google-chrome.yml
+    - include: tasks/skype.yml
 
