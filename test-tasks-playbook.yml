@@ -3,6 +3,4 @@
 
   tasks:
     - include: tasks/rpmfusion.yml
-  roles:
-    - role: robertdebock.rpmfusion
-      become: yes
+
