@@ -3,10 +3,22 @@
     name: robertdebock.rpmfusion
   become: yes
 
-- name: Install Fedora Packages From RPM Fusion
+- name: install free-release-tainted
+  become: yes
+  ansible.builtin.package:
+    name: rpmfusion-free-release-tainted
+    state: present
+
+- name: install nonfree-release-tainted
+  become: yes
+  ansible.builtin.package:
+    name: rpmfusion-nonfree-release-tainted
+    state: present
+
+- name: Install Fedora Packages from RPM Fusion
   become: yes
   package:
     state: present
     name:
     - vlc
-
+    - unrar # rpmfusion-nonfree
