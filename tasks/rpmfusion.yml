@@ -22,3 +22,7 @@
     name:
     - vlc
     - unrar # rpmfusion-nonfree
+    - lame
+    - "@multimedia"
+    - lame
+    - libdvdcss
