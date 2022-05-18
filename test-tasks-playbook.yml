@@ -1,4 +1,6 @@
 ---
 - hosts: all
+
   tasks:
-    - include: tasks/patch-xdg-autostart.yml
+    - include: tasks/skype.yml
+

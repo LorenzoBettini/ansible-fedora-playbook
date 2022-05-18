@@ -4,7 +4,7 @@
     state: present
     name:
     - kate
-    - spectacle
+    # - spectacle # does not seem to work
     - kvantum # to have Kate color schemes
   register: packageout
 

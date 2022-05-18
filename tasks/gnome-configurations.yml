@@ -23,6 +23,11 @@
     key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-down"
     value: "['<Super>Page_Down']"
 
+- name: Super+d Show Desktop
+  dconf:
+    key: "/org/gnome/desktop/wm/keybindings/show-desktop"
+    value: "['<Super>d']"
+
 # Custom shortcuts:
 #   For each shortcut, define a name, a command, and a binding.
 
