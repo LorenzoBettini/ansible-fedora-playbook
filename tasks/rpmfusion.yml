@@ -1,0 +1,7 @@
+- name: Install Fedora Packages From RPM Fusion
+  become: yes
+  package:
+    state: present
+    name:
+    - vlc
+

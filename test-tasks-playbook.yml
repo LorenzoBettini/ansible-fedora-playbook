@@ -1,4 +1,7 @@
 ---
 - hosts: all
+
   tasks:
-    - include: tasks/patch-xdg-autostart.yml
+    - include: tasks/rpmfusion.yml
+  roles:
+    - { role: robertdebock.rpmfusion, become: yes }
