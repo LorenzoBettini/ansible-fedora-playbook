@@ -9,10 +9,11 @@
   yum_repository:
     name: google-chrome
     description: google-chrome repository
-    baseurl: http://dl.google.com/linux/chrome/rpm/stable/x86_64
-    enabled: true
+    baseurl: https://dl.google.com/linux/chrome/rpm/stable/x86_64
+    skip_if_unavailable: true
     gpgcheck: true
     gpgkey: https://dl.google.com/linux/linux_signing_key.pub
+    enabled: true
 
 - name: Install google-chrome-stable
   become: yes
@@ -20,3 +21,16 @@
     name: "google-chrome-stable"
     state: present
     update_cache: true
+
+# During installation the repo is changed, so we add it again to have idempotency
+- name: Add Google repository into repo.d list Again
+  become: yes
+  yum_repository:
+    name: google-chrome
+    description: google-chrome repository
+    baseurl: https://dl.google.com/linux/chrome/rpm/stable/x86_64
+    skip_if_unavailable: true
+    gpgcheck: true
+    gpgkey: https://dl.google.com/linux/linux_signing_key.pub
+    enabled: true
+

@@ -16,4 +16,6 @@ ansible-galaxy collection install -r requirements.yml
 
 ansible-playbook -i local -v playbook-fedora-gnome.yml -K
 
+ansible-playbook -i local -v test-tasks-playbook.yml -K
+
 ansible -m include_tasks -a file=tasks/main-packages.yml localhost -K
