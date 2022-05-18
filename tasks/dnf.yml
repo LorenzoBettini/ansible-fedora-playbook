@@ -12,4 +12,3 @@
     value: True
   - option: max_parallel_downloads
     value: 10
-
