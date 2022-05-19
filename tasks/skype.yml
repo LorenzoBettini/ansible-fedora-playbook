@@ -30,4 +30,3 @@
     gpgcheck: true
     gpgkey: https://repo.skype.com/data/SKYPE-GPG-KEY
     enabled: true
-

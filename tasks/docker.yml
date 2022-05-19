@@ -39,9 +39,13 @@
     append: yes
 
 # Then, you have to explicitly start docker.service
-# systemctl start docker.service
+# systemctl start docker.service.
+# With service module, when running in Docker in molecule
+# we get this error FAILED! =>
+# "msg": "Could not find the requested service docker: host"
+# with systemd module instead it works
 - name: Do NOT enable service docker on boot
   become: yes
-  ansible.builtin.service:
+  ansible.builtin.systemd:
     name: docker
     enabled: no

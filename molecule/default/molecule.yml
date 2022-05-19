@@ -1,0 +1,25 @@
+---
+dependency:
+  name: galaxy
+  options:
+    role-file: requirements.yml
+    requirements-file: requirements.yml
+driver:
+  name: docker
+lint: |
+  set -e
+  yamllint .
+  ansible-lint
+platforms:
+  - name: ${MOLECULE_DISTRO:-fedora-gnome}-instance
+    image: custom-${MOLECULE_DOCKER_DISTRO:-fedora-default}-ansible
+    dockerfile: ../docker/${MOLECULE_DOCKER_DISTRO:-fedora-default}/Dockerfile
+    command: ""
+    privileged: true
+    build_image: true
+provisioner:
+  name: ansible
+  playbooks:
+    converge: ../${MOLECULE_DISTRO:-fedora-gnome}/converge.yml
+verifier:
+  name: ansible
