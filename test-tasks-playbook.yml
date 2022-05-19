@@ -2,4 +2,5 @@
 - hosts: all
 
   tasks:
-    - include: tasks/skype.yml
+    - include: tasks/flatpak.yml
+    - include: tasks/gnome-extension-manager.yml
