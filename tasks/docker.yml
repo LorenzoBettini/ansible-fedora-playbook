@@ -42,6 +42,6 @@
 # systemctl start docker.service
 - name: Do NOT enable service docker on boot
   become: yes
-  ansible.builtin.service:
+  ansible.builtin.systemd:
     name: docker
     enabled: no
