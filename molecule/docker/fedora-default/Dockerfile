@@ -10,6 +10,7 @@ RUN dnf -y update && dnf clean all
 RUN dnf makecache \
   && dnf -y install \
     python3-pip \
+    unzip \
     sudo \
     which \
     python3-dnf \
