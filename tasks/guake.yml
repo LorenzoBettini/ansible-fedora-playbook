@@ -1,0 +1,7 @@
+---
+- name: Install Guake Drop-down Terminal
+  become: true
+  package:
+    state: present
+    name:
+    - guake
