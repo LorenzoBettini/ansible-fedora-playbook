@@ -16,12 +16,14 @@
     - include: tasks/dnf.yml
     - include: tasks/git.yml
     - include: tasks/rpmfusion.yml
+    - include: tasks/flatpak.yml
     - include: tasks/fedora-packages.yml
     - include: tasks/main-packages.yml
     - include: tasks/gnome-packages.yml
     - include: tasks/gnome-extensions.yml
     - include: tasks/gnome-configurations.yml
     - include: tasks/gnome-tracker.yml
+    - include: tasks/gnome-extension-manager.yml
     - include: tasks/guake.yml
     - include: tasks/zsh.yml
     - include: tasks/zsh-antigen.yml
