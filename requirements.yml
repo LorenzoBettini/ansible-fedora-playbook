@@ -10,5 +10,5 @@ roles:
 
 collections:
   # Install a collection from Ansible Galaxy.
-  - name: kewlfft.aur
+#  - name: kewlfft.aur
   - name: community.general
