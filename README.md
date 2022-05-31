@@ -1,13 +1,33 @@
 # ansible-fedora-playbook
 Ansible playbooks for Fedora installations and configurations
 
-ansible-playbook -i local -v show-linux-distro-details.yml
+Install requirements
 
-ansible-galaxy install -r requirements.yml
+```
 ansible-galaxy collection install -r requirements.yml
+ansible-galaxy install -r requirements.yml
+```
 
+Run a playbook, e.g., for GNOME
+
+```
 ansible-playbook -i local -v playbook-fedora-gnome.yml -K
+```
 
+For local quick testing of single tasks, include them in `test-tasks-playbook.yml` and then:
+
+```
 ansible-playbook -i local -v test-tasks-playbook.yml -K
+```
 
+For looking at distro details:
+
+```
+ansible-playbook -i local -v show-linux-distro-details.yml
+```
+
+For single tasks, specify the name of the task file, e.g.:
+
+```
 ansible -m include_tasks -a file=tasks/main-packages.yml localhost -K
+```
