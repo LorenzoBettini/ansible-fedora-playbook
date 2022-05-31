@@ -16,5 +16,11 @@
     - aspell
     - gimp
     - tree
-#    - plocate # let's try to stick with mlocate
+    - plocate
     - eog # Eyes of Gnome
+
+- name: Enable plocate-updatedb.timer
+  become: yes
+  ansible.builtin.systemd:
+    name: plocate-updatedb.timer
+    enabled: yes
