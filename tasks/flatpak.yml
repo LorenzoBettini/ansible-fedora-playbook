@@ -12,3 +12,12 @@
     state: present
     flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
 #    method: user
+
+# To remove the filters on flathub introduced by Fedora
+# see https://ask.fedoraproject.org/t/ansible-flathub-repo-setup/19176
+# see https://fedoraproject.org/wiki/Changes/Filtered_Flathub_Applications
+- name: Remove filters from flathub
+  become: true
+  shell:
+    cmd: flatpak remote-modify --no-filter flathub 
+  changed_when: false
