@@ -18,6 +18,6 @@
 # see https://fedoraproject.org/wiki/Changes/Filtered_Flathub_Applications
 - name: Remove filters from flathub
   become: true
-  shell:
+  ansible.builtin.command:
     cmd: flatpak remote-modify --no-filter flathub 
   changed_when: false
