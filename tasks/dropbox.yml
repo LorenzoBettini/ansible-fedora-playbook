@@ -1,12 +1,12 @@
 - name: Add Dropbox Yum signing key
   become: yes
-  rpm_key:
+  ansible.builtin.rpm_key:
     key: https://linux.dropbox.com/fedora/rpm-public-key.asc
     state: present
 
 - name: Add Dropbox repository into repo.d list
   become: yes
-  yum_repository:
+  ansible.builtin.yum_repository:
     file: dropbox
     name: Dropbox
     description: Dropbox Repository
@@ -15,7 +15,7 @@
 
 - name: Install Dropbox
   become: yes
-  dnf:
+  ansible.builtin.dnf:
     name: "nautilus-dropbox"
     state: present
     update_cache: true

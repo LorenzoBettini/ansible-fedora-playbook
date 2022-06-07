@@ -1,5 +1,5 @@
 - name: Install RPM Fusion
-  import_role:
+  ansible.builtin.import_role:
     name: robertdebock.rpmfusion
   become: yes
 
@@ -17,7 +17,7 @@
 
 - name: Install Fedora Packages from RPM Fusion
   become: yes
-  package:
+  ansible.builtin.package:
     state: present
     name:
     - vlc

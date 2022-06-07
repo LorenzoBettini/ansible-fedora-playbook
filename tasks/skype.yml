@@ -1,12 +1,12 @@
 - name: Add Skype Yum signing key
   become: yes
-  rpm_key:
+  ansible.builtin.rpm_key:
     key: https://repo.skype.com/data/SKYPE-GPG-KEY
     state: present
 
 - name: Add Skype repository into repo.d list
   become: yes
-  yum_repository:
+  ansible.builtin.yum_repository:
     name: skype-stable
     description: skype (stable)
     baseurl: https://repo.skype.com/rpm/stable/
@@ -16,14 +16,14 @@
 
 - name: Install Skype
   become: yes
-  dnf:
+  ansible.builtin.dnf:
     name: skypeforlinux
     state: present
 
 # During installation the repo is changed, so we add it again to have idempotency
 - name: Add Skype repository into repo.d list Again
   become: yes
-  yum_repository:
+  ansible.builtin.yum_repository:
     name: skype-stable
     description: skype (stable)
     baseurl: https://repo.skype.com/rpm/stable/

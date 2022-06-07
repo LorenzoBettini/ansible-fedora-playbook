@@ -1,12 +1,12 @@
 - name: Add Google Yum signing key
   become: yes
-  rpm_key:
+  ansible.builtin.rpm_key:
     key: https://dl.google.com/linux/linux_signing_key.pub
     state: present
 
 - name: Add Google repository into repo.d list
   become: yes
-  yum_repository:
+  ansible.builtin.yum_repository:
     name: google-chrome
     description: google-chrome repository
     baseurl: https://dl.google.com/linux/chrome/rpm/stable/x86_64
@@ -17,7 +17,7 @@
 
 - name: Install google-chrome-stable
   become: yes
-  yum:
+  ansible.builtin.yum:
     name: "google-chrome-stable"
     state: present
     update_cache: true
@@ -25,7 +25,7 @@
 # During installation the repo is changed, so we add it again to have idempotency
 - name: Add Google repository into repo.d list Again
   become: yes
-  yum_repository:
+  ansible.builtin.yum_repository:
     name: google-chrome
     description: google-chrome repository
     baseurl: https://dl.google.com/linux/chrome/rpm/stable/x86_64
