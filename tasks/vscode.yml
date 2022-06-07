@@ -1,6 +1,6 @@
 - name: install VS Code repo (yum)
   become: yes
-  yum_repository:
+  ansible.builtin.yum_repository:
     name: code
     description: Visual Studio Code repo
     file: vscode
@@ -10,6 +10,6 @@
 
 - name: install VS Code (yum)
   become: yes
-  yum:
+  ansible.builtin.yum:
     name: code
     state: present

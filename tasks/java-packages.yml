@@ -1,6 +1,6 @@
 - name: Install Java Packages
   become: yes
-  dnf:
+  ansible.builtin.dnf:
     state: present
     name:
     - java-17-openjdk-devel
@@ -11,12 +11,12 @@
     - java-1.8.0-openjdk-src
 
 - name: Create Java links directory
-  file:
+  ansible.builtin.file:
     path: '~/.jdk'
     state: directory
 
 - name: Create Java links
-  file:
+  ansible.builtin.file:
     src: '/usr/lib/jvm/java-{{ item }}-openjdk'
     dest: '~/.jdk/jdk{{ item }}'
     state: link
@@ -25,13 +25,13 @@
     - 17
 
 - name: Create Java 8 link
-  file:
+  ansible.builtin.file:
     src: '/usr/lib/jvm/java-1.8.0-openjdk'
     dest: '~/.jdk/jdk8'
     state: link
 
 - name: Remove old Java links
-  file:
+  ansible.builtin.file:
     path: '~/.jdk/jdk{{ item }}'
     state: absent
   loop:
@@ -50,7 +50,7 @@
 #   when: packageout.msg is defined
 
 - name: Install Maven
-  include_role:
+  ansible.builtin.include_role:
     name: gantsign.maven
   vars:
     maven_version: '3.8.5'

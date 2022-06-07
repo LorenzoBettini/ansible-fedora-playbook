@@ -1,6 +1,6 @@
 - name: Make sure dnf-plugins.core installed
   become: yes
-  dnf:
+  ansible.builtin.dnf:
     name: dnf-plugins-core
     state: present
 
@@ -22,7 +22,7 @@
 
 - name: Install Docker Packages
   become: yes
-  dnf:
+  ansible.builtin.dnf:
     state: present
     name:
     - docker-ce
@@ -33,7 +33,7 @@
 
 - name: Allow running Docker without sudo
   become: yes
-  user:
+  ansible.builtin.user:
     name: "{{ ansible_user_id }}"
     groups: docker
     append: yes

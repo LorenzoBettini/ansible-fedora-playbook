@@ -1,6 +1,6 @@
 - name: Install Recoll
   become: yes
-  package:
+  ansible.builtin.package:
     state: present
     name:
     - recoll
@@ -9,11 +9,11 @@
     - python-lxml
 
 - name: Create Recoll configuration directory
-  file:
+  ansible.builtin.file:
     path: '~/.recoll'
     state: directory
 
 - name: Set Recoll configuration
-  copy:
+  ansible.builtin.copy:
     src: "{{ playbook_dir }}/tasks/files/recoll/"
     dest: "~/.recoll/"

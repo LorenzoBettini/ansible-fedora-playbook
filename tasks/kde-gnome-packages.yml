@@ -1,6 +1,6 @@
 - name: Install KDE Packages in Gnome
   become: yes
-  package:
+  ansible.builtin.package:
     state: present
     name:
     - kate
@@ -9,7 +9,7 @@
   register: packageout
 
 - name: Ensure xdg mime default application is set
-  command: "xdg-mime default {{ item[0].desktop_file }} {{ item[1] }}"
+  ansible.builtin.command: "xdg-mime default {{ item[0].desktop_file }} {{ item[1] }}"
   changed_when: False
   with_subelements:
     - "{{ xdg_mime_defaults }}"

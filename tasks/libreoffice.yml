@@ -1,6 +1,6 @@
 - name: Install LibreOffice Packages
   become: yes
-  package:
+  ansible.builtin.package:
     state: present
     name:
 #    - hunspell-en_US

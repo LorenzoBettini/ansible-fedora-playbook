@@ -1,6 +1,6 @@
 - name: Install Gnome Packages
   become: yes
-  package:
+  ansible.builtin.package:
     state: present
     name:
     - gnome-tweaks
@@ -13,7 +13,7 @@
 
 - name: Install Gnome 42 Packages
   become: yes
-  package:
+  ansible.builtin.package:
     state: present
     name:
     - gnome-text-editor

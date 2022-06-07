@@ -1,6 +1,6 @@
 - name: Install Antigen requirements
   become: yes
-  package:
+  ansible.builtin.package:
     state: present
     pkg:
     - powerline-fonts
@@ -8,11 +8,11 @@
     - git
 
 - name: Download Antigen
-  get_url:
+  ansible.builtin.get_url:
     url: "https://git.io/antigen"
     dest: "~/antigen.zsh"
 
 - name: Set Antigen configuration
-  copy:
+  ansible.builtin.copy:
     src: "{{ playbook_dir }}/tasks/files/antigen/"
     dest: "~/"

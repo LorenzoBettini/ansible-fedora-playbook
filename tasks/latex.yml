@@ -1,6 +1,6 @@
 - name: Install Latex Packages
   become: yes
-  package:
+  ansible.builtin.package:
     state: present
     name:
     - texlive-scheme-medium
