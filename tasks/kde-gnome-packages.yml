@@ -28,6 +28,7 @@
     option: '{{ item.option }}'
     value: '{{ item.value }}'
     no_extra_spaces: yes
+    mode: 0644
   loop:
     - section: KTextEditor Document
       option: ReplaceTabsDyn

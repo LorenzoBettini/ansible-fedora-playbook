@@ -12,8 +12,10 @@
   ansible.builtin.file:
     path: '~/.recoll'
     state: directory
+    mode: 0775
 
 - name: Set Recoll configuration
   ansible.builtin.copy:
     src: "{{ playbook_dir }}/tasks/files/recoll/"
     dest: "~/.recoll/"
+    mode: 0600

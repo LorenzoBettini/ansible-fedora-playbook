@@ -11,8 +11,10 @@
   ansible.builtin.get_url:
     url: "https://git.io/antigen"
     dest: "~/antigen.zsh"
+    mode: 0644
 
 - name: Set Antigen configuration
   ansible.builtin.copy:
     src: "{{ playbook_dir }}/tasks/files/antigen/"
     dest: "~/"
+    mode: 0600
