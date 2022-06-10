@@ -34,7 +34,8 @@
     - include: tasks/java-packages.yml
     - include: tasks/google-chrome.yml
     - include: tasks/dropbox.yml
-    - include: tasks/docker.yml
+    # docker-ce has a few problems (https://ask.fedoraproject.org/t/docker-very-slow-in-fedora/23214)
+    - include: tasks/docker-moby.yml
     - include: tasks/cronie.yml # required for cron scheduling
     - include: tasks/recoll.yml
     - include: tasks/vscode.yml
