@@ -15,6 +15,11 @@
     - moby-engine
     - docker-compose
 
+- name: Ensure group "docker" exists
+  ansible.builtin.group:
+    name: docker
+    state: present
+
 - name: Allow running Docker without sudo
   become: yes
   ansible.builtin.user:
