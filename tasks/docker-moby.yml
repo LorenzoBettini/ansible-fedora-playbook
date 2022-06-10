@@ -10,7 +10,7 @@
 - name: Install Docker Moby
   become: yes
   ansible.builtin.dnf:
-    state: absent
+    state: present
     name:
     - moby-engine
     - docker-compose
