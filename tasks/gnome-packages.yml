@@ -10,6 +10,7 @@
     - guake
     - deja-dup
     - file-roller-nautilus # includes file-roller
+    - gnome-screenshot # the original screenshot application
 
 - name: Install Gnome 42 Packages
   become: yes
