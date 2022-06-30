@@ -11,6 +11,7 @@
     - deja-dup
     - file-roller-nautilus # includes file-roller
     - gnome-screenshot # the original screenshot application
+    - eog # Eyes of Gnome
 
 - name: Install Gnome 42 Packages
   become: yes
