@@ -4,6 +4,8 @@ roles:
   - name: gantsign.maven
   - name: petermosmans.customize-gnome
   - name: robertdebock.rpmfusion
+    src: https://github.com/LorenzoBettini/ansible-role-customize-gnome
+    version: "issue-15"
 #     # src: https://github.com/LorenzoBettini/ansible-role-customize-gnome
 #     # version: "issue-8"
 #     # now https://github.com/PeterMosmans/ansible-role-customize-gnome/issues/8 is fixed
