@@ -5,8 +5,6 @@ roles:
   - name: robertdebock.rpmfusion
   - name: petermosmans.customize-gnome
     version: 0.2.5
-    # src: https://github.com/LorenzoBettini/ansible-role-customize-gnome
-    # version: "issue-15"
 #    src: https://github.com/LorenzoBettini/ansible-role-customize-gnome
 #    version: "issue-15"
 #     # src: https://github.com/LorenzoBettini/ansible-role-customize-gnome
