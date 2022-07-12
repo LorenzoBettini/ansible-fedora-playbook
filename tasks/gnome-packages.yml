@@ -3,6 +3,7 @@
   ansible.builtin.package:
     state: present
     name:
+    - gnome-shell
     - gnome-tweaks
     - dconf-editor
     - python-psutil
@@ -12,6 +13,15 @@
     - file-roller-nautilus # includes file-roller
     - gnome-screenshot # the original screenshot application
     - eog # Eyes of Gnome
+
+- name: Gnome Shell version
+  ansible.builtin.command: "gnome-shell --version"
+  changed_when: False
+  register: command_output
+
+- name: Gnome Shell version show
+  ansible.builtin.debug:
+    var: command_output.stdout
 
 - name: Install Gnome 42 Packages
   become: yes
