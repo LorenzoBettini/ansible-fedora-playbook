@@ -11,6 +11,7 @@
     - net-tools
     - thunderbird
     - util-linux-user # for chsh
+    - firewall-applet
 
 # base-devel does not exist
 # unison must be taken from COPR
