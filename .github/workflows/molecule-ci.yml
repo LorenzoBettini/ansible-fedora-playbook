@@ -32,6 +32,12 @@ jobs:
         run: |
           pip install -r pip/requirements.txt
 
+      - name: Show versions.
+        run: |
+          molecule --version
+          yamllint --version
+          ansible-lint --version
+
       - name: Run Molecule tests.
         run: molecule test
         env:
