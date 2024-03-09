@@ -4,7 +4,6 @@ Ansible playbooks for Fedora installations and configurations
 Install requirements
 
 ```
-ansible-galaxy collection install -r requirements.yml
 ansible-galaxy install -r requirements.yml
 ```
 
