@@ -23,19 +23,6 @@ jobs:
       - name: Check out the codebase.
         uses: actions/checkout@v2
 
-      - name: Cache Ansible dependencies
-        uses: actions/cache@v3
-        with:
-          path: |
-            ~/.ansible
-            ~/.cache/molecule
-            ~/.cache/ansible-*
-            ~/.pip
-          key: ${{ runner.os }}-ansible-pip-molecule-${{ hashFiles('requirements.yml', '**/requirements.txt') }}
-          # restore-keys: ${{ runner.os }}-ansible-
-          # make sure that when an exact cache is not found we start with new
-          # downloaded requirements
-
       - name: Set up Python 3.
         uses: actions/setup-python@v2
         with:
@@ -44,9 +31,6 @@ jobs:
       - name: Install test dependencies.
         run: |
           pip install -r pip/requirements.txt
-          pip install pip install git+https://github.com/ansible-community/molecule-docker.git
-        # We need to use molecule-docker from HEAD until the fix is released:
-        # https://github.com/ansible-community/molecule-docker/issues/184
 
       - name: Run Molecule tests.
         run: molecule test
