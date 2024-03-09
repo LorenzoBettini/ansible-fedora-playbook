@@ -13,38 +13,38 @@
       ansible.builtin.dnf: update_cache=yes
       changed_when: False
   tasks:
-    - include: tasks/dnf.yml
-    - include: tasks/git.yml
-    - include: tasks/rpmfusion.yml
-    - include: tasks/fedora-packages.yml
-    - include: tasks/main-packages.yml
-    - include: tasks/gnome-packages.yml
-    - include: tasks/gnome-extensions.yml
-    - include: tasks/gnome-configurations.yml
-    - include: tasks/gnome-templates.yml
-    - include: tasks/gnome-tracker.yml
-    - include: tasks/flatpak.yml
-    - include: tasks/gnome-extension-manager.yml
-    - include: tasks/guake.yml
-    - include: tasks/zsh.yml
-    - include: tasks/zsh-antigen.yml
+    - include_tasks: tasks/dnf.yml
+    - include_tasks: tasks/git.yml
+    - include_tasks: tasks/rpmfusion.yml
+    - include_tasks: tasks/fedora-packages.yml
+    - include_tasks: tasks/main-packages.yml
+    - include_tasks: tasks/gnome-packages.yml
+    - include_tasks: tasks/gnome-extensions.yml
+    - include_tasks: tasks/gnome-configurations.yml
+    - include_tasks: tasks/gnome-templates.yml
+    - include_tasks: tasks/gnome-tracker.yml
+    - include_tasks: tasks/flatpak.yml
+    - include_tasks: tasks/gnome-extension-manager.yml
+    - include_tasks: tasks/guake.yml
+    - include_tasks: tasks/zsh.yml
+    - include_tasks: tasks/zsh-antigen.yml
     # in Fedora 36 we have the new Gnome text editor that looks good!
-    - include: tasks/kde-gnome-packages.yml
+    - include_tasks: tasks/kde-gnome-packages.yml
       when: ansible_distribution_version is version('36', '<')
-    - include: tasks/java-packages.yml
-    - include: tasks/google-chrome.yml
-    - include: tasks/dropbox.yml
+    - include_tasks: tasks/java-packages.yml
+    - include_tasks: tasks/google-chrome.yml
+    - include_tasks: tasks/dropbox.yml
     # docker-ce has a few problems (https://ask.fedoraproject.org/t/docker-very-slow-in-fedora/23214)
-    - include: tasks/docker-moby.yml
-    - include: tasks/cronie.yml # required for cron scheduling
-    - include: tasks/recoll.yml
-    - include: tasks/vscode.yml
-    - include: tasks/libreoffice.yml
-    - include: tasks/other-packages.yml
-    - include: tasks/skype.yml
-    - include: tasks/unison.yml
+    - include_tasks: tasks/docker-moby.yml
+    - include_tasks: tasks/cronie.yml # required for cron scheduling
+    - include_tasks: tasks/recoll.yml
+    - include_tasks: tasks/vscode.yml
+    - include_tasks: tasks/libreoffice.yml
+    - include_tasks: tasks/other-packages.yml
+    - include_tasks: tasks/skype.yml
+    - include_tasks: tasks/unison.yml
     - block:
-      - include: tasks/latex.yml
+      - include_tasks: tasks/latex.yml
       tags: latex
 
   # post_tasks:
