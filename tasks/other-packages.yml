@@ -21,6 +21,10 @@
     - libappindicator-gtk3 # for Variety in Wayland
     - variety
     - powertop
+    - neovim
+    - nodejs-npm # required for some neovim LSPs, e.g., 
+    - shellcheck # required for neovim LSP bashls
+
 
 - name: Enable plocate-updatedb.timer
   become: true
