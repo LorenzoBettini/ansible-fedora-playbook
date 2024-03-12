@@ -1,17 +1,17 @@
 - name: Make sure dnf-plugins.core installed
-  become: yes
+  become: true
   ansible.builtin.dnf:
     name: dnf-plugins-core
     state: present
 
 - name: Add Docker signing key
-  become: yes
+  become: true
   ansible.builtin.rpm_key:
     key: "https://download.docker.com/linux/fedora/gpg"
     state: present
 
 - name: Add Docker repository into repo.d list
-  become: yes
+  become: true
   ansible.builtin.yum_repository:
     name: docker
     description: docker repository
@@ -21,7 +21,7 @@
     gpgkey: "https://download.docker.com/linux/fedora/gpg"
 
 - name: Install Docker Packages
-  become: yes
+  become: true
   ansible.builtin.dnf:
     state: present
     name:
@@ -32,7 +32,7 @@
     update_cache: true
 
 - name: Allow running Docker without sudo
-  become: yes
+  become: true
   ansible.builtin.user:
     name: "{{ ansible_user_id }}"
     groups: docker
@@ -45,14 +45,14 @@
 # "msg": "Could not find the requested service docker: host"
 # with systemd module instead it works
 - name: Do NOT enable service docker on boot
-  become: yes
+  become: true
   ansible.builtin.systemd:
     name: docker.service
     enabled: no
 
 # This way, as soon as we run a docker command docker.service starts
 - name: Enable docker.socket on boot
-  become: yes
+  become: true
   ansible.builtin.systemd:
     name: docker.socket
     enabled: yes

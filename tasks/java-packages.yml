@@ -1,5 +1,5 @@
 - name: Install Java Packages
-  become: yes
+  become: true
   ansible.builtin.dnf:
     state: present
     name:
@@ -41,7 +41,7 @@
 
 # This should not be required
 # - name: Install libwebkit2gtk (for Eclipse SWT Browser)
-#   become: yes
+#   become: true
 #   pacman:
 #     state: present
 #     name: libwebkit2gtk-4.0-37

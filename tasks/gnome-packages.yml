@@ -1,5 +1,5 @@
 - name: Install Gnome Packages
-  become: yes
+  become: true
   ansible.builtin.package:
     state: present
     name:
@@ -24,7 +24,7 @@
     var: command_output.stdout
 
 - name: Install Gnome 42 Packages
-  become: yes
+  become: true
   ansible.builtin.package:
     state: present
     name:

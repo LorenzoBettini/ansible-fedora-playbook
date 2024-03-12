@@ -1,5 +1,5 @@
 - name: Install Antigen requirements
-  become: yes
+  become: true
   ansible.builtin.package:
     state: present
     pkg:

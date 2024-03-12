@@ -1,5 +1,5 @@
 - name: Install Git Packages
-  become: yes
+  become: true
   ansible.builtin.package:
     state: present
     name:

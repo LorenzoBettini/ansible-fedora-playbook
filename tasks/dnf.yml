@@ -1,5 +1,5 @@
 - name: Configure DNF
-  become: yes
+  become: true
   community.general.ini_file:
     path: /etc/dnf/dnf.conf
     mode: 0644

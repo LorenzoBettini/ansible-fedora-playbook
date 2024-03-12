@@ -1,5 +1,5 @@
 - name: Install Other Packages
-  become: yes
+  become: true
   ansible.builtin.package:
     state: present
     name:
@@ -23,7 +23,7 @@
     - powertop
 
 - name: Enable plocate-updatedb.timer
-  become: yes
+  become: true
   ansible.builtin.systemd:
     name: plocate-updatedb.timer
     enabled: yes

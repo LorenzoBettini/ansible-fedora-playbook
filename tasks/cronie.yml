@@ -1,5 +1,5 @@
 - name: Install cronie
-  become: yes
+  become: true
   ansible.builtin.package:
     state: present
     name:
@@ -7,7 +7,7 @@
 
 # No such service in Fedora?
 #- name: Enable service cronie
-#  become: yes
+#  become: true
 #  ansible.builtin.systemd:
 #    name: cronie
 #    enabled: yes

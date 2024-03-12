@@ -1,12 +1,12 @@
 - name: Enable project Unison of the user croadfeldt
-  become: yes
+  become: true
   community.general.copr:
     host: copr.fedorainfracloud.org
     state: enabled
     name: croadfeldt/Unison
 
 - name: install Unison
-  become: yes
+  become: true
   ansible.builtin.dnf:
     state: present
     name:
