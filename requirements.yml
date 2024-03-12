@@ -5,6 +5,8 @@ roles:
   - name: robertdebock.rpmfusion
   - name: petermosmans.customize-gnome
     version: 0.2.10
+  - name: lorenzobettini.oh_my_zsh
+    src: https://github.com/LorenzoBettini/ansible-molecule-oh-my-zsh-example/
   - name: lorenzobettini.my_gnome_role
     src: https://github.com/LorenzoBettini/my_gnome_role/
 #    src: https://github.com/LorenzoBettini/ansible-role-customize-gnome
