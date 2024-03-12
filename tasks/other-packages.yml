@@ -14,7 +14,7 @@
     - exfatprogs
 #    - ispell
     - aspell
-    - gimp
+#    - gimp installed in rpmfusion.yml see comment there
     - tree
     - plocate
     - duf
