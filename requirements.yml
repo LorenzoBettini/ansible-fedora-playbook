@@ -9,6 +9,8 @@ roles:
     src: https://github.com/LorenzoBettini/ansible-molecule-oh-my-zsh-example/
   - name: lorenzobettini.my_gnome_role
     src: https://github.com/LorenzoBettini/my_gnome_role/
+  - name: lorenzobettini.my_nerd_fonts_role
+    src: https://github.com/LorenzoBettini/my_nerd_fonts_role
 #    src: https://github.com/LorenzoBettini/ansible-role-customize-gnome
 #    version: "issue-15"
 #     # src: https://github.com/LorenzoBettini/ansible-role-customize-gnome
