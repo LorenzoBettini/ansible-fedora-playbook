@@ -18,14 +18,9 @@
     - include_tasks: tasks/rpmfusion.yml
     - include_tasks: tasks/fedora-packages.yml
     - include_tasks: tasks/main-packages.yml
-    - include_tasks: tasks/gnome-packages.yml
-    - include_tasks: tasks/gnome-extensions.yml
-    - include_tasks: tasks/gnome-configurations.yml
-    - include_tasks: tasks/gnome-templates.yml
-    - include_tasks: tasks/gnome-tracker.yml
-    - include_tasks: tasks/flatpak.yml
-    - include_tasks: tasks/gnome-extension-manager.yml
-    - include_tasks: tasks/guake.yml
+    - name: Install GNOME
+      ansible.builtin.include_role:
+        name: lorenzobettini.my_gnome_role
     - include_tasks: tasks/zsh.yml
     - include_tasks: tasks/zsh-antigen.yml
     # in Fedora 36 we have the new Gnome text editor that looks good!
