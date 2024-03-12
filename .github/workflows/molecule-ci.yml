@@ -42,7 +42,7 @@ jobs:
           ansible-lint --version
 
       - name: Run Molecule tests.
-        run: molecule test
+        run: molecule test -- -v
         env:
           PY_COLORS: '1'
           ANSIBLE_FORCE_COLOR: '1'
