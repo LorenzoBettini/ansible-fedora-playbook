@@ -18,6 +18,7 @@
     - include_tasks: tasks/rpmfusion.yml
     - include_tasks: tasks/fedora-packages.yml
     - include_tasks: tasks/main-packages.yml
+    - include_tasks: tasks/homebrew.yml
     - name: Install GNOME
       ansible.builtin.include_role:
         name: lorenzobettini.my_gnome_role
