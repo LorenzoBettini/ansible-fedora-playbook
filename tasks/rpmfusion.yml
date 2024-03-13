@@ -26,8 +26,9 @@
 
 - name: Install Fedora Packages from RPM Fusion
   become: true
-  ansible.builtin.package:
+  ansible.builtin.dnf:
     state: present
+    allowerasing: true
     name:
     - vlc
     - unrar # rpmfusion-nonfree
