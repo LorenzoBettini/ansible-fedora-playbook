@@ -13,7 +13,7 @@ Run a playbook, e.g., for GNOME
 ansible-playbook -i local -v playbook-fedora-gnome.yml -K
 ```
 
-In case, you can skip a few steps, e.g., `--skip-tags latex`.
+In case, you can skip a few steps, e.g., `--skip-tags latex`, or only run specifically tagged tasks, e.g., `--tags java`.
 
 For local quick testing of single tasks, include them in `test-tasks-playbook.yml` and then:
 

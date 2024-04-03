@@ -35,7 +35,9 @@
     # in Fedora 36 we have the new Gnome text editor that looks good!
     - include_tasks: tasks/kde-gnome-packages.yml
       when: ansible_distribution_version is version('36', '<')
-    - include_tasks: tasks/java-packages.yml
+    - block:
+      - include_tasks: tasks/java-packages.yml
+      tags: java
     - include_tasks: tasks/google-chrome.yml
     - include_tasks: tasks/dropbox.yml
     # docker-ce has a few problems (https://ask.fedoraproject.org/t/docker-very-slow-in-fedora/23214)

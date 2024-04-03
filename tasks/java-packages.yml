@@ -5,6 +5,8 @@
     name:
     - java-17-openjdk-devel
     - java-17-openjdk-src
+    - java-21-openjdk-devel
+    - java-21-openjdk-src
     - java-11-openjdk-devel
     - java-11-openjdk-src
     - java-1.8.0-openjdk-devel
@@ -24,6 +26,7 @@
   loop:
     - 11
     - 17
+    - 21
 
 - name: Create Java 8 link
   ansible.builtin.file:
