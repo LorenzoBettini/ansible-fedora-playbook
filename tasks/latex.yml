@@ -15,3 +15,4 @@
     - texlive-thmtools
     - texlive-appendix
     - texlive-pdfsync
+    - texlive-cleveref
