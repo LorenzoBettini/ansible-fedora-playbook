@@ -18,3 +18,5 @@
     - texlive-cleveref
     - texlive-fncychap
     - texlive-minifp
+    - texlive-preprint
+    - texlive-apacite
