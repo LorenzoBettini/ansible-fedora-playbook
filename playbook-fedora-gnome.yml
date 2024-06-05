@@ -48,7 +48,8 @@
     - include_tasks: tasks/vscode.yml
     - include_tasks: tasks/libreoffice.yml
     - include_tasks: tasks/other-packages.yml
-    - include_tasks: tasks/skype.yml
+    # not available anymore as a package
+    # - include_tasks: tasks/skype.yml
     - include_tasks: tasks/unison.yml
     - block:
       - include_tasks: tasks/latex.yml
