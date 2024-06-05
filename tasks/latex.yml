@@ -20,3 +20,5 @@
     - texlive-minifp
     - texlive-preprint
     - texlive-apacite
+    - texlive-lastpage
+    - texlive-textpos
