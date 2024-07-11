@@ -25,3 +25,6 @@
     - texlive-doi
     - texlive-totpages
     - texlive-hyperxmp
+    - texlive-newtx
+    - texlive-inconsolata
+    - texlive-libertine
