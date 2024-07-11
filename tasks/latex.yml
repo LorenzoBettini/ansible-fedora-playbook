@@ -22,3 +22,6 @@
     - texlive-apacite
     - texlive-lastpage
     - texlive-textpos
+    - texlive-doi
+    - texlive-totpages
+    - texlive-hyperxmp
