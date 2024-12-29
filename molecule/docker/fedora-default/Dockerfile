@@ -1,4 +1,4 @@
-FROM fedora:40
+FROM fedora:41
 LABEL maintainer="Lorenzo Bettini"
 
 ENV container docker
@@ -14,6 +14,7 @@ RUN dnf makecache \
     sudo \
     which \
     python3-dnf \
+    python3-libdnf5 \
   && dnf clean all
 
 ADD https://raw.githubusercontent.com/gdraheim/docker-systemctl-replacement/master/files/docker/systemctl3.py /usr/bin/systemctl
