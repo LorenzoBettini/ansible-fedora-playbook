@@ -1,5 +1,10 @@
 ---
 # REQUIRED: git curl
+- name: Install the 'Development tools' package group
+  ansible.builtin.dnf:
+    name: '@Development tools'
+    state: present
+
 # must NOT be installed with sudo
 - name: Install Homebrew
   ansible.builtin.shell: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
