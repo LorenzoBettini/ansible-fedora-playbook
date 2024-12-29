@@ -1,8 +1,11 @@
 ---
 # REQUIRED: git curl
+
+# Homebrew requires development tools
+# The group was called '@Development tools' up to Fedora 40
 - name: Install the 'Development tools' package group
   ansible.builtin.dnf:
-    name: '@Development tools'
+    name: '@development-tools'
     state: present
 
 # must NOT be installed with sudo
