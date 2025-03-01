@@ -1,4 +1,5 @@
-FROM gitpod/workspace-python-3.12:2024-05-06-09-37-26
+FROM gitpod/workspace-python-3.12:2025-02-26-08-19-09
+# see https://hub.docker.com/r/gitpod/workspace-python-3.12/tags
 
 # To try this before committing:
 # docker build -f .gitpod.Dockerfile -t gitpod-dockerfile-test .
