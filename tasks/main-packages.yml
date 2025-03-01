@@ -12,6 +12,7 @@
     - thunderbird
     - util-linux-user # for chsh
     - firewall-applet
+    - python3-dnf # for community.general.copr
 
 # base-devel does not exist
 # unison must be taken from COPR

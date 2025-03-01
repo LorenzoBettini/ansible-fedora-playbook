@@ -8,12 +8,14 @@ lint: |
   yamllint .
   ansible-lint
 platforms:
-  - name: ${MOLECULE_DISTRO:-fedora-gnome}-instance
-    image: custom-${MOLECULE_DOCKER_DISTRO:-fedora-default}-ansible
-    dockerfile: ../docker/${MOLECULE_DOCKER_DISTRO:-fedora-default}/Dockerfile
+  - name: instance
+    image: "geerlingguy/docker-fedora41-ansible:latest"
     command: ""
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:rw
+    cgroupns_mode: host
     privileged: true
-    build_image: true
+    pre_build_image: true
 provisioner:
   name: ansible
   playbooks:
