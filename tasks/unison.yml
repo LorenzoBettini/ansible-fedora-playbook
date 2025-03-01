@@ -5,7 +5,7 @@
     state: enabled
     name: croadfeldt/Unison
 
-- name: install Unison
+- name: Install Unison
   become: true
   ansible.builtin.dnf:
     state: present

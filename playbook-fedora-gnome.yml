@@ -1,14 +1,16 @@
 ---
-- hosts: all
+- name: Fedora Gnome Playbook
+  hosts: all
   pre_tasks:
     - name: System details
-      ansible.builtin.debug: msg="{{ item }}"
+      ansible.builtin.debug:
+        msg: "{{ item }}"
       with_items: 
       - "{{ ansible_distribution }}"
       - "{{ ansible_distribution_release }}"
       - "{{ ansible_distribution_version }}"
       - "{{ ansible_distribution_major_version }}"
-    - name: update repositories
+    - name: Update repositories
       become: true
       ansible.builtin.dnf:
         update_cache: true
@@ -37,9 +39,9 @@
     # in Fedora 36 we have the new Gnome text editor that looks good!
     - include_tasks: tasks/kde-gnome-packages.yml
       when: ansible_distribution_version is version('36', '<')
-    - block:
+    - tags: java
+      block:
       - include_tasks: tasks/java-packages.yml
-      tags: java
     - include_tasks: tasks/google-chrome.yml
     - include_tasks: tasks/dropbox.yml
     # docker-ce has a few problems (https://ask.fedoraproject.org/t/docker-very-slow-in-fedora/23214)
@@ -52,9 +54,9 @@
     # not available anymore as a package
     # - include_tasks: tasks/skype.yml
     - include_tasks: tasks/unison.yml
-    - block:
+    - tags: latex
+      block:
       - include_tasks: tasks/latex.yml
-      tags: latex
 
   # post_tasks:
   #   - name: Dist-upgrade
