@@ -9,13 +9,13 @@
     name: robertdebock.rpmfusion
   become: true
 
-- name: install free-release-tainted
+- name: Install free-release-tainted
   become: true
   ansible.builtin.package:
     name: rpmfusion-free-release-tainted
     state: present
 
-- name: install nonfree-release-tainted
+- name: Install nonfree-release-tainted
   become: true
   ansible.builtin.package:
     name: rpmfusion-nonfree-release-tainted

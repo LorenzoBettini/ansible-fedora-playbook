@@ -1,4 +1,4 @@
-- name: install VS Code repo (yum)
+- name: Install VS Code repo (yum)
   become: true
   ansible.builtin.yum_repository:
     name: code
@@ -8,7 +8,7 @@
     gpgkey: 'https://packages.microsoft.com/keys/microsoft.asc'
     gpgcheck: yes
 
-- name: install VS Code (yum)
+- name: Install VS Code (yum)
   become: true
   ansible.builtin.yum:
     name: code
